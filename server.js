@@ -7,7 +7,7 @@ const expressLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 const session = require('express-session')
 
-const pool = require('./pool/index')
+const pool = require('./db/index')
 
 const setCurrentUser = require('./middlewares/setCurrentUser')
 const ensureLoggedIn = require('./middlewares/ensureLoggedIn')
