@@ -37,7 +37,7 @@ app.get('/collections', (req, res) => {
     res.render('collection')
 })
 
-app.use(ensureLoggedIn)
+
 
 app.get('/cart', ensureLoggedIn, (req, res) => {
     res.render('cart')
@@ -51,7 +51,7 @@ app.get('/login', (req, res) => {
     res.render('login')
 })
 
-
+app.use(ensureLoggedIn)
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 })
