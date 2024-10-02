@@ -19,6 +19,7 @@ function setCurrentUser(req, res, next) {
         }
 
         let user = result.rows[0]
+        console.log(user)
         res.locals.currentUser = user
         res.locals.isLoggedIn = true;
         next()

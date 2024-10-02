@@ -11,6 +11,7 @@ const pg = require('pg')
 const setCurrentUser = require('./middlewares/setCurrentUser')
 const ensureLoggedIn = require('./middlewares/ensureLoggedIn')
 
+
 app.set('view engine', 'ejs')
 
 app.use(express.static('public'))
@@ -37,8 +38,6 @@ app.get('/collections', (req, res) => {
     res.render('collection')
 })
 
-
-
 app.get('/cart', ensureLoggedIn, (req, res) => {
     res.render('cart')
 })
@@ -50,6 +49,49 @@ app.get('/update', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login')
 })
+
+app.post('/login', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const sql = `
+        SELECT *
+        FROM users
+        WHERE email = '${email}';
+    `
+    db.query(sql, (err, result) => {
+        if (results.rows.length === 0) {
+            console.log('user not found')
+            return res.send('user not found')
+        }
+
+        const user = result.rows[0];
+
+        bcrypt.compare(password, user.password_digest, (err, isCorrect) => {
+            if (err) {
+                console.log(err)
+            }
+
+            if (isCorrect) {
+                console.log('password is correct')
+            }
+
+            req.session.userId = user.id;
+
+            res.redirect('/')
+        })
+    })
+})
+
+app.delete('/logout', ensureLoggedIn, (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.log(err)
+        }
+        res.redirect('/login')
+    })
+})
+
 
 app.use(ensureLoggedIn)
 app.listen(port, () => {

@@ -19,7 +19,18 @@
         </nav>
 
         <div>
-            <a href="/login">login</a>
+
+            <%if (isLoggedIn) {%>
+                <!-- <% if ()%> -->
+                <p>welcome back <%= currentUser.email%></p>
+        
+                <form action="/logout?_method=delete" method="post">
+                    <button>logout</button>
+                </form>
+        
+            <%} else {%>
+                <a href="/login">login</a>
+            <%}%>
             <a href="/cart">cart</a>
         </div>
     </header>
