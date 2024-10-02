@@ -17,7 +17,8 @@ CREATE TABLE items (
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email TEXT UNIQUE,
-    password_digest TEXT
+    password_digest TEXT,
+    isAdmin BOOLEAN
 );
 
 INSERT INTO collections (collection_name, image_url)
