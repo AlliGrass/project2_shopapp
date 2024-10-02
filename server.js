@@ -8,7 +8,7 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const pg = require('pg')
 
-const setCurrentUser = require('./middlewares/setCurrentUser.js')
+const setCurrentUser = require('./middlewares/setCurrentUser')
 const ensureLoggedIn = require('./middlewares/ensureLoggedIn')
 
 app.set('view engine', 'ejs')
