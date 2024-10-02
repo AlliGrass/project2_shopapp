@@ -6,6 +6,7 @@ const port = 4567
 const expressLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 const session = require('express-session')
+const pg = require('pg')
 
 app.set('view engine', 'ejs')
 
@@ -20,6 +21,8 @@ app.use(methodOverride("_method"));
 // }))
 // app.use(setCurrentUser)
 app.use(expressLayouts) 
+
+
 
 
 app.get('/', (req, res) => {    
