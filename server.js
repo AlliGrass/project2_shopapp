@@ -30,8 +30,17 @@ app.use(expressLayouts)
 app.use(setCurrentUser)
 
 
-app.get('/', (req, res) => {    
-    res.render('home')
+app.get('/', (req, res) => {  
+    
+    const sql = `
+        SELECT *
+        FROM collections
+    `
+    pool.query(sql, (err, result) =>{
+        let collections = result.rows;
+
+        res.send({collections})
+    })
 })
 
 app.get('/collections', (req, res) => {
