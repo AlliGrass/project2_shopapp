@@ -1,4 +1,5 @@
-const db = require('../db/index.js')
+const db = require('../db/index.js');
+const isLoggedIn = require('./isLoggedIn.js');
 
 function setCurrentUser(req, res, next) {
     res.locals.currentUser = {}
@@ -24,6 +25,8 @@ function setCurrentUser(req, res, next) {
         res.locals.isLoggedIn = true;
         next()
     })
+
+    isLoggedIn = false;
 
 }
 
