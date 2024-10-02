@@ -21,7 +21,7 @@
         <div>
 
             <%if (isLoggedIn) {%>
-                <!-- <% if ()%> -->
+
                 <p>welcome back <%= currentUser.email%></p>
         
                 <form action="/logout?_method=delete" method="post">
