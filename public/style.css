@@ -23,16 +23,13 @@ article {
     background-color: antiquewhite;
 }
 
-.home-collection-list, .collection{
+.collection-list, .collection{
     padding: 15px;
     display: flex;
     justify-content: space-evenly;
 }
 
 /* home page */
-
-
-
 
 .home-banner img {
     display: block;
@@ -81,5 +78,5 @@ article {
     width: 90%;
 }
 
-
+/* admin pages */
 
