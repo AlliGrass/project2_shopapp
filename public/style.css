@@ -1,0 +1,85 @@
+
+img {
+    width: 100%;
+    display: block;
+}
+
+header, footer {
+    background-color: bisque;
+    display: flex;
+    padding: 30px;
+    margin: 5px;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+/* general */
+
+article {
+    background-color: antiquewhite;
+}
+
+.home-collection-list, .collection{
+    padding: 15px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* home page */
+
+
+
+
+.home-banner img {
+    display: block;
+}
+
+
+
+.home-collection {
+    padding: 15px;
+}
+
+
+/* collection list page  */
+
+.collection-item {
+    padding: 15px;
+}
+
+/* cart page */
+
+.cart {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    
+    background-color: lavender;
+
+}
+
+.cart-item{
+    display: flex
+}
+
+.cart-list * {
+    border: solid 1px black;
+}
+
+.cart-item a {
+    padding: 5px;
+}
+
+.cart-item a img {
+    width: 100%;
+}
+
+.cart-item form {
+    width: 90%;
+}
+
+
+
