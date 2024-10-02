@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
         FROM collections
     `
     pool.query(sql, (err, result) =>{
-        let collections = result.rows.collections;
+        let collections = result.rows;
 
         res.send({collections})
     })
