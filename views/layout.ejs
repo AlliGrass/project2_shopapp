@@ -21,7 +21,6 @@
         <div>
 
             <%if (isLoggedIn) {%>
-
                 <p>welcome back <%= currentUser.email%></p>
         
                 <form action="/logout?_method=delete" method="post">
@@ -31,6 +30,7 @@
             <%} else {%>
                 <a href="/login">login</a>
             <%}%>
+
             <a href="/cart">cart</a>
         </div>
     </header>

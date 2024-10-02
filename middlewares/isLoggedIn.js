@@ -1,8 +1,8 @@
 function isLoggedIn(req, res) {
     if (req.session.userid) {
-        return true;
+        return res.locals.isLoggedIn = true;
     } 
-    return false;
+    return res.locals.isLoggedIn = false;
 }
 
 module.exports = isLoggedIn
