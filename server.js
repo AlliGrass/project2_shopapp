@@ -8,7 +8,8 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const pg = require('pg')
 
-const setCurrentUser = require('./middlewares/setCurrentUser')
+const setCurrentUser = require('./middlewares/setCurrentUser.js')
+const ensureLoggedIn = require('./middlewares/ensureLoggedIn')
 
 app.set('view engine', 'ejs')
 
@@ -25,7 +26,7 @@ app.use(setCurrentUser)
 app.use(expressLayouts) 
 
 
-app.use(ensureLoggedIn)
+
 
 
 app.get('/', (req, res) => {    
@@ -36,7 +37,9 @@ app.get('/collections', (req, res) => {
     res.render('collection')
 })
 
-app.get('/cart', (req, res) => {
+app.use(ensureLoggedIn)
+
+app.get('/cart', ensureLoggedIn, (req, res) => {
     res.render('cart')
 })
 
