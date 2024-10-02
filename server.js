@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
     pool.query(sql, (err, result) =>{
         let collections = result.rows;
         console.log(collections)
-        res.render('home', collections)
+        res.render('home', {collections})
     })
 })
 
