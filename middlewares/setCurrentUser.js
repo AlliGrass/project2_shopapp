@@ -5,6 +5,7 @@ function setCurrentUser(req, res, next) {
     res.locals.currentUser = {}
 
     if (!req.session.userId) {
+        res.locals.isLoggedIn = false;
         return next();
     }
 

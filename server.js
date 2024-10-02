@@ -10,7 +10,6 @@ const pg = require('pg')
 
 const setCurrentUser = require('./middlewares/setCurrentUser')
 const ensureLoggedIn = require('./middlewares/ensureLoggedIn')
-// const isLoggedIn = require('./middlewares/isLoggedIn')
 
 
 app.set('view engine', 'ejs')
@@ -29,7 +28,6 @@ app.use(expressLayouts)
 
 app.use(setCurrentUser)
 
-// app.use(isLoggedIn)
 
 app.get('/', (req, res) => {    
     res.render('home')
@@ -41,13 +39,11 @@ app.get('/collections', (req, res) => {
         SELECT *
         FROM collections
     `
-
     db.query(sql, (err, result) =>{
         let collections = result.rows;
 
         res.render('collection', {collections})
     })
-
     
 })
 

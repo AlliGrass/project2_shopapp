@@ -3,5 +3,3 @@ function isLoggedIn(req, res) {
         res.locals.isLoggedIn = true;
     } 
 }
-
-module.exports = isLoggedIn
