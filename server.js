@@ -6,7 +6,8 @@ const port = 4567
 const expressLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 const session = require('express-session')
-const pg = require('pg')
+
+const pool = require('./pool/index')
 
 const setCurrentUser = require('./middlewares/setCurrentUser')
 const ensureLoggedIn = require('./middlewares/ensureLoggedIn')
@@ -39,7 +40,7 @@ app.get('/collections', (req, res) => {
         SELECT *
         FROM collections
     `
-    db.query(sql, (err, result) =>{
+    pool.query(sql, (err, result) =>{
         let collections = result.rows;
 
         res.render('collection', {collections})
@@ -68,7 +69,7 @@ app.post('/login', (req, res) => {
         FROM users
         WHERE email = '${email}';
     `
-    db.query(sql, (err, result) => {
+    pool.query(sql, (err, result) => {
         if (results.rows.length === 0) {
             console.log('user not found')
             return res.send('user not found')
