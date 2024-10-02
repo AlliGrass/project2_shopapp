@@ -8,21 +8,24 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const pg = require('pg')
 
+const setCurrentUser = require('./middlewares/setCurrentUser')
+
 app.set('view engine', 'ejs')
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride("_method"));
-// app.use(session({
-//   cookie: { maxAge: 1000 * 60 * 60 * 24 * 3 }, // 3 days
-//   secret: process.env.SESSION_SECRET,
-//   resave: false,
-//   saveUninitialized: true
-// }))
-// app.use(setCurrentUser)
+app.use(session({
+  cookie: { maxAge: 1000 * 60 * 60 * 24 * 3 }, // 3 days
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}))
+app.use(setCurrentUser)
 app.use(expressLayouts) 
 
 
+app.use(ensureLoggedIn)
 
 
 app.get('/', (req, res) => {    
@@ -39,6 +42,10 @@ app.get('/cart', (req, res) => {
 
 app.get('/update', (req, res) => {
     res.send('updating stock') // take to home page with updated info cause admin
+})
+
+app.get('/login', (req, res) => {
+    res.render('login')
 })
 
 
