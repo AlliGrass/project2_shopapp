@@ -26,8 +26,6 @@ function setCurrentUser(req, res, next) {
         next()
     })
 
-    isLoggedIn = false;
-
 }
 
 module.exports = setCurrentUser

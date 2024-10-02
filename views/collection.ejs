@@ -4,20 +4,12 @@
     </section>
 
     <section class="collection">
-        <div class="collection-item">
-            <a href=""><img src="https://fakeimg.pl/400x400?text=collection" alt=""></a>
-        </div>
-        <div class="collection-item">
-            <a href=""><img src="https://fakeimg.pl/400x400?text=collection" alt=""></a>
-        </div>
-        <div class="collection-item">
-            <a href=""><img src="https://fakeimg.pl/400x400?text=collection" alt=""></a>
-        </div>
-        <div class="collection-item">
-            <a href=""><img src="https://fakeimg.pl/400x400?text=collection" alt=""></a>
-        </div>
-        <div class="collection-item">
-            <a href=""><img src="https://fakeimg.pl/400x400?text=collection" alt=""></a>
-        </div>
+
+        <% for (collection in collections) { %>
+            <div class="collection-item">
+                <a href="/collections/<%=collection.collection_name%>"><img src="<$=collection.image_url>" alt=""></a>
+            </div>
+
+        <% } %>
     </section>
 </article>
