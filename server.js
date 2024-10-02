@@ -10,7 +10,7 @@ const pg = require('pg')
 
 const setCurrentUser = require('./middlewares/setCurrentUser')
 const ensureLoggedIn = require('./middlewares/ensureLoggedIn')
-const isLoggedIn = require('./middlewares.isLoggedIn')
+const isLoggedIn = require('./middlewares/isLoggedIn')
 
 
 app.set('view engine', 'ejs')
