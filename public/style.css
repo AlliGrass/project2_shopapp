@@ -41,7 +41,7 @@ header a:hover, footer a:hover {
     justify-self: right;
 }
 
-.header-column {
+.header-column img {
     display: flex;
     justify-content: space-between;
     width: 70px;
