@@ -87,7 +87,7 @@ article {
 
 
 .winning-box {
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     width: 30%;
     top: 50%; /* Center vertically */
@@ -111,7 +111,7 @@ article {
 }
 
 .winning-background-overlay{
-    position: fixed;
+    position: block;
     top: 0;
     left: 0;
     width: 100%;
@@ -124,7 +124,7 @@ article {
 
 
 .close-win-popup-btn {
-    border: none;
+    border: block;
     background: none;
     font-size: larger;
     position: absolute;
