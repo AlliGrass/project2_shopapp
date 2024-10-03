@@ -110,7 +110,7 @@ article {
     margin: 10px;
 }
 
-.winning-background-overlay{
+.popup-background-overlay{
     position: fixed;
     top: 0;
     left: 0;
@@ -124,8 +124,6 @@ article {
 .user-management-btn {
     justify-self: center;
 }
-
-
 
 .close-popup-btn {
     border: block;
