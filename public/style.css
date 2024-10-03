@@ -81,12 +81,12 @@ article {
 
 /* login popup */
 
-.winning-section {
+.login-article {
     display: contents;
 }
 
 
-.winning-box {
+.login-popup-box {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     width: 30%;
@@ -106,7 +106,7 @@ article {
     justify-content: center;
 }
 
-.top-winning-box * {
+.login-popup-box * {
     margin: 10px;
 }
 
@@ -121,9 +121,13 @@ article {
     display: block;
 }
 
+.user-management-btn {
+    justify-self: center;
+}
 
 
-.close-win-popup-btn {
+
+.close-popup-btn {
     border: block;
     background: none;
     font-size: larger;
@@ -133,11 +137,7 @@ article {
     right: 0;
 }
 
-.close-win-popup-btn:hover {
+.close-popup-btn:hover {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 15%;
-}
-
-.play-again-btn {
-    padding: 10px;
 }
