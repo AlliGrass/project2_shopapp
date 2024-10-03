@@ -5,15 +5,47 @@ img {
 }
 
 header, footer {
-    background-color: bisque;
-    display: flex;
+    background-color: black;
+    display: grid;
     padding: 30px;
     justify-content: space-between;
 }
 
+header {
+    grid-template-columns: 1fr 1fr 1fr;
+}
 
+footer {
+    grid-template-columns: 1fr 1fr;
 
+}
 
+.footer-right {
+    justify-self: right;
+}
+
+header a, footer a, footer span {
+    color:  aliceblue;
+    padding: 10px;
+}
+
+header a:hover, footer a:hover {
+    color: darkgray;
+}
+
+.navbar {
+    justify-self: center;
+}
+
+.header-right {
+    justify-self: right;
+}
+
+.header-column {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+}
 
 
 /* general */

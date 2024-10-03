@@ -8,17 +8,17 @@
 </head>
 <body>
     <header>
-        <div>
+        <div class="brand">
             <a href="/">brand</a>
         </div>
 
-        <nav class="">
+        <nav class="navbar">
             <a href="/">1</a>
             <a href="/">2</a>
             <a href="/">3</a>
         </nav>
 
-        <div>
+        <div class="header-right">
             <button class="login-btn">login</button>
             <a href="/cart">cart</a>
         </div>
@@ -79,17 +79,19 @@
 
         let loginBtn = document.querySelector(".login-btn");
         loginBtn.addEventListener("click", openLoginPopup);
-        let closeBtn = document.querySelector(".close-popup-btn");
-        closeBtn.addEventListener("click", closeLoginPopup)
+        
 
         function openLoginPopup() {
             document.querySelector(".login-popup-box").style.display = "block";
             document.querySelector(".popup-background-overlay").style.display = "block";
+        
+            let closeBtn = document.querySelector(".close-popup-btn");
+            closeBtn.addEventListener("click", closeLoginPopup);
         }
 
         function closeLoginPopup() {
-            document.querySelector(".winning-box").style.display = "none";
-            document.querySelector(".winning-background-overlay").style.display = "none";
+            document.querySelector(".login-popup-box").style.display = "none";
+            document.querySelector(".popup-background-overlay").style.display = "none";
         }
 
     </script>
