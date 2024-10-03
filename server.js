@@ -79,7 +79,7 @@ app.post('/login', (req, res) => {
         WHERE email = '${email}';
     `
     pool.query(sql, (err, result) => {
-        if (results.rows.length === 0) {
+        if (result.rows.length === 0) {
             console.log('user not found')
             return res.send('user not found')
         }

@@ -12,7 +12,7 @@
             <a href="/">brand</a>
         </div>
 
-        <nav>
+        <nav class="">
             <a href="/">1</a>
             <a href="/">2</a>
             <a href="/">3</a>
@@ -79,13 +79,12 @@
 
         let loginBtn = document.querySelector(".login-btn");
         loginBtn.addEventListener("click", openLoginPopup);
+        let closeBtn = document.querySelector(".close-popup-btn");
+        closeBtn.addEventListener("click", closeLoginPopup)
 
         function openLoginPopup() {
             document.querySelector(".login-popup-box").style.display = "block";
             document.querySelector(".popup-background-overlay").style.display = "block";
-
-            let closeBtn = document.querySelector(".close-popup-btn");
-            closeBtn.addEventListener("click", closeLoginPopup)
         }
 
         function closeLoginPopup() {
