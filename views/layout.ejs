@@ -32,7 +32,7 @@
             <button class="close-popup-btn">&times;</button>
             <section class="user-management">
                 <h1>Login</h1>
-                <form action="" close>
+                <form action="/login?_method=post" method="post">
                     <div class="form-inputs">
                         <div>
                             <label for="">email</label>
@@ -75,6 +75,24 @@
         </div>
     </footer>
 
-    <script src="./middlewares/loginPopup.js"></script>
+    <script>
+
+        let loginBtn = document.querySelector(".login-btn");
+        loginBtn.addEventListener("click", openLoginPopup);
+
+        function openLoginPopup() {
+            document.querySelector(".login-popup-box").style.display = "block";
+            document.querySelector(".popup-background-overlay").style.display = "block";
+
+            let closeBtn = document.querySelector(".close-popup-btn");
+            closeBtn.addEventListener("click", closeLoginPopup)
+        }
+
+        function closeLoginPopup() {
+            document.querySelector(".winning-box").style.display = "none";
+            document.querySelector(".winning-background-overlay").style.display = "none";
+        }
+
+    </script>
 </body>
 </html>
