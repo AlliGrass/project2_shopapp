@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+
 
 img {
     width: 100%;
@@ -39,6 +43,16 @@ header a:hover, footer a:hover {
 
 .header-right {
     justify-self: right;
+}
+
+.login-btn {
+    background: none;
+    border: none;
+    color: aliceblue;
+}
+
+.login-btn:hover {
+    color: darkgray;
 }
 
 .header-column img {
@@ -133,8 +147,8 @@ article {
 
 }
 
-.user-management {
-    display: grid;
+.user-management-login, .user-management-signup {
+    display: none;
     justify-content: center;
 }
 

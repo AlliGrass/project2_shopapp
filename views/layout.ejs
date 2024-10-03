@@ -30,7 +30,7 @@
     <article class="login-article">
         <div class="login-popup-box">
             <button class="close-popup-btn">&times;</button>
-            <section class="user-management">
+            <section class="user-management-login">
                 <h1>Login</h1>
                 <form action="/login?_method=post" method="post">
                     <div class="form-inputs">
@@ -51,6 +51,27 @@
                 <form action="">
                     <button class="user-management-btn">Sign Up</button>
                 </form>
+            </section>
+            <section class="user-management-signup"></section>
+                <h1>Create Account</h1>
+                <form action="" method="post">
+                    <div class="form-inputs">
+                        <div>
+                            <label for="">email</label>
+                            <input type="text" name="email">
+                        </div>
+                        <div>
+                            <label for="">password</label>
+                            <input type="password" name="password">
+                        </div>
+                    </div>
+                    
+                    <button class="user-management-btn">Signup</button>
+                </form>
+                <hr>
+                <h1>Already have an account?</h1>
+                <button class="user-management-btn">Login</button>
+
             </section>
 
             
@@ -83,11 +104,28 @@
 
         function openLoginPopup() {
             document.querySelector(".login-popup-box").style.display = "block";
+            document.querySelector(".user-management-login").style.display = "grid";
             document.querySelector(".popup-background-overlay").style.display = "block";
-        
+
             let closeBtn = document.querySelector(".close-popup-btn");
             closeBtn.addEventListener("click", closeLoginPopup);
+
+            let signupBtn = document.querySelector(".user-management-signup-btn");
+            signupBtn.addEventListener("click", switchPopup);
         }
+
+        // function switchPopup(event) {
+        //     let popup = event.target;
+        //     console.log(popUp)
+        //     switch (popup) {
+        //         case popupLoginBtn:
+        //             let hidePopup = ".";
+        //             break;
+        //         case signupBtn:
+        //             let hidePopup = ".user-management-loigin";
+        //             break;
+        //     }
+        // }
 
         function closeLoginPopup() {
             document.querySelector(".login-popup-box").style.display = "none";

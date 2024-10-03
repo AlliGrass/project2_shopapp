@@ -4,13 +4,12 @@
     </section>
 
     <section class="collection-list">
-        <% if (collections.length) {%>
-            <% collections.forEach((collection) => {%>
-                <div class="collection-item">
-                    <!-- <a href="/collections"><img src="https://fakeimg.pl/400x400?text=collection" alt=""><%=collection%></a> -->
-                    <a href="/collections/<%=collections.collection_name%>"><img src="<$=collections.image_url>" alt=""><%= collection%></a>
-                </div>
-            <% }) %>
+        <% for (collection in collections) { %>
+            <div class="collection-item">
+                <%= collection.collection_name%>
+                <!-- <a href="/collections"><img src="https://fakeimg.pl/400x400?text=collection" alt=""><%=collection%></a> -->
+                <a href="/collections/<%=collection.collection_name%>"><img src="<$=collection.image_url>" alt=""></a>
+            </div>
         <% } %>
 
 
