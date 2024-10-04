@@ -5,22 +5,7 @@
 
     <section class="edit-forms">
 
-        <div class="edit-form-option">
-            <h2>Add Collection</h2>
-            <form action="/addcollection" method="post">
-                <div>
-                    <label for="">Collection Name</label>
-                    <input type="text" name="collection_name">
-                </div>
-                <div>
-                    <label for="">Collection Img URL</label>
-                    <input type="text" name="img_url">
-                </div>
-                <button>Add Collection</button>
-            </form>
-            
-
-        </div>
+        
         
         <div class="edit-form-option">
             <h2>Add Item</h2>
@@ -104,19 +89,35 @@
             </form>
         </div>
 
-        <div class="edit-form-option">
-            <h2>Remove Item</h2>
-            <form action="/update?_method=DELETE" method="post">
-                <select name="item_id" id="">
-                    <% for (item of itemList) {%>
-                        <option value="<%= item.id%>"><%= item.item_name%></option>
-                    <% } %>
-                </select>
-                
-                <button>Delete</button>
-            </form>
-        </div>
-            
+        </section>
+        <section class="edit-form-options">
+            <div class="edit-form-option"></div>
+                <h2>Add Collection</h2>
+                <form action="/addcollection" method="post">
+                    <div>
+                        <label for="">Collection Name</label>
+                        <input type="text" name="collection_name">
+                    </div>
+                    <div>
+                        <label for="">Collection Img URL</label>
+                        <input type="text" name="img_url">
+                    </div>
+                    <button>Add Collection</button>
+                </form>
+            </div>
+
+            <div class="edit-form-option">
+                <h2>Remove Item</h2>
+                <form action="/update?_method=DELETE" method="post">
+                    <select name="item_id" id="">
+                        <% for (item of itemList) {%>
+                            <option value="<%= item.id%>"><%= item.item_name%></option>
+                        <% } %>
+                    </select>
+                    
+                    <button>Delete</button>
+                </form>
+            </div>
      
     </section>
 

@@ -291,13 +291,14 @@ article {
 }
 
 .edit-forms {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: space-between;
 }
 
 .edit-form-option {
-    padding-top: 60px;
+    padding: 60px;
+    padding-top: 120px;
 }
 
 .edit-forms div {
