@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/17dfc393-9f46-4141-a107-b18f90af1e46)# [Render](https://project2-shopapp.onrender.com)
+# [Render](https://project2-shopapp.onrender.com)
 
 Heres my mediocre Website
 
@@ -45,7 +45,7 @@ The user management was unique as I didn't create an entirely separate page, but
 An admin page was also implemented, and so if the user that has logged in has admin priviledges, they will be able to see the edit button on their page.
 
 ![edit](./images/onlineShop_Screenshot12.png)
-![editPage](./images/onlineShop_Screenshot16.png)
+![editPage](./images/onlineShop_Screenshot17.png)
 
 You may notice that the edit page, accessible to the admin, is not styled well, and also doesn't have a mockup design. It is precisely for that reason why I need a mockup design for the pages I create.
 
