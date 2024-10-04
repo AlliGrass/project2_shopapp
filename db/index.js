@@ -2,8 +2,8 @@ const pg = require('pg')
 
 const connectionString = process.env.DATABASE_URL
 
-const pool = new pg.Pool({
+const db = new pg.Pool({
     connectionString: connectionString
 })
 
-module.exports = pool
+module.exports = db

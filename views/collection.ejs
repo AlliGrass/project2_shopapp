@@ -1,13 +1,12 @@
 <article>
     <section class="collection-banner">
-        <img src="https://fakeimg.pl/1920x500?text=collection" alt="">
+        <img src="https://imgs.search.brave.com/v_LfTP5swKnbNPQ8k6PnJ6kAGPYaC2SOrbZa95y6PkU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvcHJldmll/dy0xeC81Ni82OC9z/aG9wcGluZy1iYW5u/ZXItd2l0aC1sb2Nh/dGlvbi1zdG9yZS1j/YXJ0LWdpZnRzLXZl/Y3Rvci00MjkzNTY2/OC5qcGc" alt="">
     </section>
 
     <section class="collection">
-
-        <% for (collection in collections) { %>
+        <% for (item of items) { %>
             <div class="collection-item">
-                <a href="/collections/<%=collection.collection_name%>"><img src="<$=collection.image_url>" alt=""></a>
+                <a href="/collections/<%= collectionPage%>/<%= item.id%>"><img src="<%=item.image_url%>" alt=""></a>
             </div>
         <% } %>
     </section>

@@ -13,19 +13,33 @@
         </div>
 
         <nav class="navbar">
-            <a href="/">1</a>
-            <a href="/">2</a>
-            <a href="/">3</a>
+            <a href="/">Home</a>
+            <% for (collection of collectionNames) {%>
+                <a href="/collections/<%= collection.collection_name%>"><%= collection.collection_name[0].toUpperCase() + collection.collection_name.slice(1)%></a>
+            <% } %>
         </nav>
 
         <div class="header-right">
-            <button class="login-btn">login</button>
-            <a href="/cart">cart</a>
+            <% if (isLoggedIn) { %>
+                <% switch(isAdmin) {
+                    case true:%>
+                        <a href="/update">Edit</a>
+                    <% default: %>
+                        <!-- <p class="user"></p> -->
+                        <form action="/logout?_method=delete" method="post" class="logout-form">
+                            <button class="logout-btn">Logout</button>
+                        </form>
+                <% } %>
+            <% } else { %>
+                <button class="login-btn">Login</button>
+            <% } %>
+            <a href="/cart">Cart</a>
         </div>
     </header>
 
     <%- body%>
 
+    
 
     <article class="login-article">
         <div class="login-popup-box">
@@ -48,16 +62,17 @@
                 </form>
                 <hr>
                 <h1>Don't have an account yet?</h1>
-                <form action="">
-                    <button class="user-management-btn">Sign Up</button>
-                </form>
+                
+                <button class="user-management-swap-btn">Create Account</button>
+                
             </section>
-            <section class="user-management-signup"></section>
+
+            <section class="user-management-signup">
                 <h1>Create Account</h1>
-                <form action="" method="post">
+                <form action="/signup" method="post">
                     <div class="form-inputs">
                         <div>
-                            <label for="">email</label>
+                            <label for="/signup">email</label>
                             <input type="text" name="email">
                         </div>
                         <div>
@@ -66,11 +81,11 @@
                         </div>
                     </div>
                     
-                    <button class="user-management-btn">Signup</button>
+                    <button class="user-management-btn">Create Account</button>
                 </form>
                 <hr>
                 <h1>Already have an account?</h1>
-                <button class="user-management-btn">Login</button>
+                <button class="user-management-swap-btn">Login</button>
 
             </section>
 
@@ -89,7 +104,7 @@
             <span>&copy;2024 AlliGrassIndustries</span>
         </div>
 
-        <div>
+        <div class="footer-right">
             <a href="">Shipping</a>
             <a href="">Policies</a>
             <a href="">Terms and Conditions</a>
@@ -99,38 +114,88 @@
     <script>
 
         let loginBtn = document.querySelector(".login-btn");
-        loginBtn.addEventListener("click", openLoginPopup);
-        
 
+        if (loginBtn !== null) {
+            loginBtn.addEventListener("click", openLoginPopup);
+        }
+        
+        
         function openLoginPopup() {
             document.querySelector(".login-popup-box").style.display = "block";
             document.querySelector(".user-management-login").style.display = "grid";
+            document.querySelector(".user-management-signup").style.display = "none";
             document.querySelector(".popup-background-overlay").style.display = "block";
 
             let closeBtn = document.querySelector(".close-popup-btn");
             closeBtn.addEventListener("click", closeLoginPopup);
 
-            let signupBtn = document.querySelector(".user-management-signup-btn");
-            signupBtn.addEventListener("click", switchPopup);
+            let swapBtnList = document.querySelectorAll(".user-management-swap-btn");
+            swapBtnList.forEach(swapBtn => {
+                swapBtn.addEventListener("click", switchPopup);
+            });
         }
 
-        // function switchPopup(event) {
-        //     let popup = event.target;
-        //     console.log(popUp)
-        //     switch (popup) {
-        //         case popupLoginBtn:
-        //             let hidePopup = ".";
-        //             break;
-        //         case signupBtn:
-        //             let hidePopup = ".user-management-loigin";
-        //             break;
-        //     }
-        // }
+        function switchPopup(event) {
+            swapBtnText = event.target.innerText
+            let hidePopup = '';
+            switch (swapBtnText) {
+                case 'Login':   
+                    hidePopup = ".user-management-signup";
+                    showPopup = ".user-management-login";
+                    break;
+                case 'Create Account':
+                    console.log('goodbye')
+                    hidePopup = ".user-management-login";
+                    showPopup = ".user-management-signup";
+                    break;
+            }
+
+            document.querySelector(showPopup).style.display = "grid";
+            document.querySelector(hidePopup).style.display = "none";
+
+            let swapBtnList = document.querySelectorAll(".user-management-swap-btn");
+            swapBtnList.forEach(swapBtn => {
+                swapBtn.addEventListener("click", switchPopup);
+            });
+
+        }
 
         function closeLoginPopup() {
             document.querySelector(".login-popup-box").style.display = "none";
             document.querySelector(".popup-background-overlay").style.display = "none";
         }
+        
+
+
+        
+
+
+    //     const cartAvailability = <%= isLoggedIn%>;  // Injecting server-side logic
+
+    // // Function to check if cart is available
+    //     function checkCartAvailable(cartAvailability) {
+    //         // Run the checkConditions function first
+    //         if (cartAvailability) {
+    //         } else {
+    //             console.log('not logged in');
+    //             openLoginPopup();
+    //         }
+    //     }
+
+    //     // Adding an event listener to the button to trigger the checkCartAvailable function
+    //     document.querySelector('.cart-btn').addEventListener('click', function() {
+    //         checkCartAvailable(cartAvailability);
+    //     });
+
+
+
+
+
+
+
+
+
+
 
     </script>
 </body>

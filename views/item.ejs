@@ -1,0 +1,29 @@
+<article class="item-article">
+    <section class="item-display">
+        <div class="item-img">
+            <img src="<%= itemDetails.image_url%>" alt="">
+        </div>
+        <div class="item-description">
+            <h1><%= itemDetails.item_name[0].toUpperCase() + itemDetails.item_name.slice(1)%></h1>
+            <p><%= itemDetails.description%></p>
+            <span>$<%= itemDetails.price%></span>
+            <form action="/cart" method="post">
+                <input type="hidden" name="id" value="<%= itemDetails.id%>">
+                <button>Add to Cart</button>
+            </form>
+        </div>
+
+    </section>
+
+    <section class="item-reviews">
+        <h1>Reviews</h1>
+        <% for (individualComment of itemComments) {%>
+            <% console.log(individualComment)%>
+            <article class="review">
+                <h2><%= individualComment.email%></h2>
+                <p><%=individualComment.comment%></p>
+            </article>
+        <% } %>
+    </section>
+
+</article>

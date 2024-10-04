@@ -1,23 +1,62 @@
-<article>
-    <section class="account">
-        <h1>Welcome User</h1>
-    </section>
-    <section class="cart">
-        <article class="cart-list">
-            <div class="cart-item">
-                <a href=""><img src="https://fakeimg.pl/400x400?text=item" alt=""></a>
+<article class="cart-article">
 
-            
-                <form action="">
-
-                    
-                </form>
+    <% if (cartList.length === 0) {%>
+        <section class="empty-cart">
+            <div>
+                <h1>Uh Oh.</h1>
+                <h2>Looks like your cart is empty</h2>
+                <p>Check out the shop to add items to your cart. They will appear here.</p>
             </div>
-            
-            
-        </article>
-        <aside class="cart-billing">
-            hello
-        </aside>
-    </section>
+            <div class="redirect-links">
+                <a href="/">Home</a>
+                <a href="/collections">Collections</a>
+            </div>
+        </section>
+    <% } else { %>
+        <h2>Cart</h2>
+        <section class="cart">
+            <article class="cart-list">
+                <% let totalCartPrice = 0;
+                for (item of cartList) {%>
+                    <%totalCartPrice += item.price;%>
+                    
+                    
+                    <div class="cart-item">
+                        <img src="<%= item.image_url%>" alt="">
+                        <form action="/cart?_method=DELETE" method="post">
+                            <input type="hidden" value="<%= item.user_id%>" name="user_id">
+                            <input type="hidden" value="<%= item.item_id%>" name="item_id">
+                            <h2><%= item.item_name[0].toUpperCase() + item.item_name.slice(1)%></h2>
+                            <p><%= item.description%></p>
+                            <p>$<%= item.price%></p>
+                            <button>Remove from Cart</button>
+                        </form>
+                    </div>
+                <% } %>
+            </article>
+            <aside class="cart-billing">
+                <h1>Order</h1>
+                <section class="pricing">
+                    <div class="billing-rows">
+                        <p>Price</p>
+                        <p>$<%= totalCartPrice%></p>
+                    </div>
+                    <div class="billing-rows">
+                        <p>Shipping</p>
+                        <p>To Be Calculated</p>
+                    </div>
+                </section>
+                <form action="">
+                    <button>Checkout</button>
+                </form>
+            </aside> 
+        </section>
+    
+    
+    <% } %>
+
+    
+
+
+    
 </article>
