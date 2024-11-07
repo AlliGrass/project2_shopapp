@@ -11,21 +11,18 @@
         <div class="brand">
             <a href="/">brand</a>
         </div>
-
         <nav class="navbar">
             <a href="/">Home</a>
             <% for (collection of collectionNames) {%>
                 <a href="/collections/<%= collection.collection_name%>"><%= collection.collection_name[0].toUpperCase() + collection.collection_name.slice(1)%></a>
             <% } %>
         </nav>
-
         <div class="header-right">
             <% if (isLoggedIn) { %>
                 <% switch(isAdmin) {
                     case true:%>
                         <a href="/update">Edit</a>
                     <% default: %>
-                        <!-- <p class="user"></p> -->
                         <form action="/logout?_method=delete" method="post" class="logout-form">
                             <button class="logout-btn">Logout</button>
                         </form>
@@ -38,8 +35,6 @@
     </header>
 
     <%- body%>
-
-    
 
     <article class="login-article">
         <div class="login-popup-box">
@@ -57,14 +52,11 @@
                             <input type="password" name="password">
                         </div>
                     </div>
-                    
                     <button class="user-management-btn">Login</button>
                 </form>
                 <hr>
                 <h1>Don't have an account yet?</h1>
-                
                 <button class="user-management-swap-btn">Create Account</button>
-                
             </section>
 
             <section class="user-management-signup">
@@ -80,16 +72,12 @@
                             <input type="password" name="password">
                         </div>
                     </div>
-                    
                     <button class="user-management-btn">Create Account</button>
                 </form>
                 <hr>
                 <h1>Already have an account?</h1>
                 <button class="user-management-swap-btn">Login</button>
-
             </section>
-
-            
         </div>
         <div class="popup-background-overlay"></div>
     </article>
@@ -97,106 +85,19 @@
     <footer>
         <div>
             <section class="socials">
-                <a href="">git</a>
-                <a href="">IG</a>
+                <a href="https://github.com/AlliGrass">Git</a>
                 <a href="">LinkedIn</a>
             </section>
             <span>&copy;2024 AlliGrassIndustries</span>
         </div>
 
         <div class="footer-right">
-            <a href="">Shipping</a>
-            <a href="">Policies</a>
-            <a href="">Terms and Conditions</a>
+            <a>Shipping</a>
+            <a>Policies</a>
+            <a>Terms and Conditions</a>
         </div>
     </footer>
 
-    <script>
-
-        let loginBtn = document.querySelector(".login-btn");
-
-        if (loginBtn !== null) {
-            loginBtn.addEventListener("click", openLoginPopup);
-        }
-        
-        
-        function openLoginPopup() {
-            document.querySelector(".login-popup-box").style.display = "block";
-            document.querySelector(".user-management-login").style.display = "grid";
-            document.querySelector(".user-management-signup").style.display = "none";
-            document.querySelector(".popup-background-overlay").style.display = "block";
-
-            let closeBtn = document.querySelector(".close-popup-btn");
-            closeBtn.addEventListener("click", closeLoginPopup);
-
-            let swapBtnList = document.querySelectorAll(".user-management-swap-btn");
-            swapBtnList.forEach(swapBtn => {
-                swapBtn.addEventListener("click", switchPopup);
-            });
-        }
-
-        function switchPopup(event) {
-            swapBtnText = event.target.innerText
-            let hidePopup = '';
-            switch (swapBtnText) {
-                case 'Login':   
-                    hidePopup = ".user-management-signup";
-                    showPopup = ".user-management-login";
-                    break;
-                case 'Create Account':
-                    console.log('goodbye')
-                    hidePopup = ".user-management-login";
-                    showPopup = ".user-management-signup";
-                    break;
-            }
-
-            document.querySelector(showPopup).style.display = "grid";
-            document.querySelector(hidePopup).style.display = "none";
-
-            let swapBtnList = document.querySelectorAll(".user-management-swap-btn");
-            swapBtnList.forEach(swapBtn => {
-                swapBtn.addEventListener("click", switchPopup);
-            });
-
-        }
-
-        function closeLoginPopup() {
-            document.querySelector(".login-popup-box").style.display = "none";
-            document.querySelector(".popup-background-overlay").style.display = "none";
-        }
-        
-
-
-        
-
-
-    //     const cartAvailability = <%= isLoggedIn%>;  // Injecting server-side logic
-
-    // // Function to check if cart is available
-    //     function checkCartAvailable(cartAvailability) {
-    //         // Run the checkConditions function first
-    //         if (cartAvailability) {
-    //         } else {
-    //             console.log('not logged in');
-    //             openLoginPopup();
-    //         }
-    //     }
-
-    //     // Adding an event listener to the button to trigger the checkCartAvailable function
-    //     document.querySelector('.cart-btn').addEventListener('click', function() {
-    //         checkCartAvailable(cartAvailability);
-    //     });
-
-
-
-
-
-
-
-
-
-
-
-    </script>
+    <script src="../middlewares/loginPopup.js"></script>
 </body>
 </html>

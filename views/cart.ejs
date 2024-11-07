@@ -1,5 +1,4 @@
 <article class="cart-article">
-
     <% if (cartList.length === 0) {%>
         <section class="empty-cart">
             <div>
@@ -18,9 +17,7 @@
             <article class="cart-list">
                 <% let totalCartPrice = 0;
                 for (item of cartList) {%>
-                    <%totalCartPrice += item.price;%>
-                    
-                    
+                    <%totalCartPrice += item.price;%>          
                     <div class="cart-item">
                         <img src="<%= item.image_url%>" alt="">
                         <form action="/cart?_method=DELETE" method="post">
@@ -51,12 +48,5 @@
                 </form>
             </aside> 
         </section>
-    
-    
     <% } %>
-
-    
-
-
-    
 </article>

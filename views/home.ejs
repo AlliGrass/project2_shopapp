@@ -6,15 +6,8 @@
     <section class="collection-list">
         <% for (collection of collections) { %>
             <div class="collection-item">
-                <!-- <a href="/collections"><img src="https://fakeimg.pl/400x400?text=collection" alt=""><%=collection%></a> -->
                 <a href="/collections/<%=collection.collection_name%>"><img src="<%=collection.image_url%>" alt=""></a>
             </div>
         <% } %>
-
-
-
-
-
-        </div>
     </section>
 </article>
