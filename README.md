@@ -1,7 +1,3 @@
-# [Render](https://project2-shopapp.onrender.com)
-
-Heres my mediocre Website
-
 # Project Overview
 
 This project is an online shop that has all the fundamentals needed to run an online shop, minus the variety in products and the ability to actualy pay.
